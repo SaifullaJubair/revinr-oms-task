@@ -1,4 +1,3 @@
-# Revinr OMS
+# Revinr OMS Task
 
 This is a [Next.js] project.
-# revinr-oms-task
