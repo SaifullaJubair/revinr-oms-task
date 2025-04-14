@@ -18,6 +18,7 @@ const Login = () => {
   const [isLoading, setLoading] = useState(false);
   const [isPasswordShow, setPasswordShow] = useState(false);
 
+  // Function to handle form submission
   const submitForm = async (data) => {
     try {
       setLoading(true);
@@ -51,6 +52,7 @@ const Login = () => {
   };
   return (
     <div className="bg-gray-100 relative min-h-screen flex items-center justify-center">
+      {/* Logo Section */}
       <div className="absolute top-4 left-4 flex items-center gap-3">
         <div className="border-4 border-[#E0E5ED] rounded-full w-12 h-12 relative">
           <Image
@@ -70,7 +72,7 @@ const Login = () => {
       </div>
       <div className="flex items-center justify-center  ">
         <div className="max-w-[1066px] w-full mx-auto flex flex-col lg:flex-row  overflow-hidden ">
-          {/* Left: Image Section */}
+          {/* Left: login Image Section */}
           <div className="lg:w-1/2 w-full flex items-center justify-center bg-gray-100 p-4">
             <Image
               src="/assets/images/auth/group.png"
