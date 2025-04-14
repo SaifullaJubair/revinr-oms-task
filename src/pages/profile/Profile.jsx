@@ -69,7 +69,7 @@ const Profile = () => {
       </p>
 
       {/* form section */}
-      <div className="bg-white shadow-sm rounded-[6px] p-10">
+      <div className="bg-white shadow-sm rounded-[6px] p-4 md:p-10">
         <h2 className="text-gray-600 font-bold text-lg my-6">
           Basic Information
         </h2>
@@ -237,14 +237,14 @@ const Profile = () => {
             {isLoading ? (
               <Button
                 type="button"
-                className="bg-blue-600 hover:bg-blue-700 px-12 text-white py-2  font-bold rounded-sm flex items-center justify-center cursor-not-allowed"
+                className="bg-blue-600 hover:bg-blue-700 px-6 md:px-12 text-white py-2  font-bold rounded-sm flex items-center justify-center cursor-not-allowed"
               >
                 <MiniSpinner />
               </Button>
             ) : (
               <Button
                 type="submit"
-                className="bg-blue-600 hover:bg-blue-700 px-12 text-white py-2  font-bold rounded-sm cursor-pointer"
+                className="bg-blue-600 hover:bg-blue-700 px-6 md:px-12 text-white py-2  font-bold rounded-sm cursor-pointer"
               >
                 Confirm
               </Button>
@@ -252,7 +252,7 @@ const Profile = () => {
 
             <Button
               type="button"
-              className="cursor-pointer bg-gray-700 px-12"
+              className="cursor-pointer bg-gray-700 px-6 md:px-12"
               onClick={() => reset()}
             >
               Cancel
