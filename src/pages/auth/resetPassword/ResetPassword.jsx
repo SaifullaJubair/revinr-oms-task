@@ -112,8 +112,9 @@ const ResetPassword = () => {
                   <div className="relative">
                     <input
                       type={isPasswordShow ? "text" : "password"}
+                      placeholder="Enter your password"
                       {...register("user_password", passwordValidation)}
-                      className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 ${
+                      className={`bg-white placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 ${
                         errors.user_password
                           ? "border-red-500"
                           : "border-gray-300"
@@ -132,25 +133,26 @@ const ResetPassword = () => {
                   </div>
                   {errors.user_password && (
                     <div className="text-xs text-red-500 mt-1 space-y-1">
-                      <p >{errors.user_password.message}</p>
+                      <p>{errors.user_password.message}</p>
                     </div>
                   )}
                 </div>
 
-                {/* Confirm Password Input */}
+                {/* Retype Password Input */}
                 <div>
                   <label className="font-bold text-sm text-gray-700">
-                    Confirm Password
+                    Retype Password
                   </label>
                   <div className="relative">
                     <input
                       type={isPasswordShow ? "text" : "password"}
+                      placeholder="Retype password"
                       {...register("confirm_password", {
                         required: "Please confirm your password",
                         validate: (value) =>
                           value === password || "Passwords do not match",
                       })}
-                      className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 ${
+                      className={`bg-white placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 ${
                         errors.confirm_password
                           ? "border-red-500"
                           : "border-gray-300"
