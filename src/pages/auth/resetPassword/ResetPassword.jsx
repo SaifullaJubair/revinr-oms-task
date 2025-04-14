@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import MiniSpinner from "@/shared/loader/MiniSpinner";
-import LogoSection from "@/components/auth/LogoSection";
 
 const ResetPassword = () => {
   const {
@@ -60,10 +59,7 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="bg-gray-100 relative min-h-screen flex items-center justify-center">
-      {/* Logo Section */}
-      <LogoSection />
-
+    <div className=" min-h-[80vh] flex items-center justify-center">
       <div className="flex items-center justify-center mt-10 lg:mt-0">
         <div className="max-w-[1066px] w-full mx-auto flex flex-col lg:flex-row overflow-hidden">
           {/* Left: Image */}

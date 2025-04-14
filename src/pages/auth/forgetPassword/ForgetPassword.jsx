@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { PiWarningCircle } from "react-icons/pi";
 import Image from "next/image";
 import MiniSpinner from "@/shared/loader/MiniSpinner";
-import LogoSection from "@/components/auth/LogoSection";
 
 const ForgetPassword = () => {
   const length = 6;
@@ -107,10 +106,7 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="bg-gray-100 relative min-h-screen flex items-center justify-center ">
-      {/* Logo Section */}
-      <LogoSection />
-
+    <div className=" min-h-[80vh] flex items-center justify-center">
       <div className="flex items-center justify-center mt-10 lg:mt-0 ">
         <div className="max-w-[1066px] w-full mx-auto flex flex-col lg:flex-row overflow-hidden">
           {/* Left Image */}

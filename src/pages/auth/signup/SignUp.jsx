@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { toast } from "react-toastify";
-
-import LogoSection from "@/components/auth/LogoSection";
 import SignUpForm from "./SignUpForm";
 
 const SignUp = () => {
