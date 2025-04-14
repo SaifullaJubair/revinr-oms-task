@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { CheckCircle, XCircle } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import Image from "next/image";
 
 const plans = [
   {
@@ -52,21 +54,21 @@ const Pricing = () => {
   const [yearly, setYearly] = useState(false);
 
   return (
-    <div className="bg-bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold text-cyan-600">
+        <h2 className="text-2xl sm:text-3xl font-bold text-cyan-500">
           30-day free trial. No credit card required
         </h2>
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-600 text-lg mt-2">
           A complete HR solution for every business
         </p>
-        <p className="mt-1 text-gray-600 text-sm">
+        <p className="mt-1  text-gray-500 text-lg">
           Choose a plan that's right for you
         </p>
 
         {/* Toggle */}
         <div className="flex justify-center items-center gap-4 mt-6">
-          <span className="text-gray-600">Pay Monthly</span>
+          <span className="text-gray-900">Pay Monthly</span>
           <label className="relative inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
@@ -74,10 +76,21 @@ const Pricing = () => {
               checked={yearly}
               onChange={() => setYearly(!yearly)}
             />
-            <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:bg-cyan-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+            {/* <div className="w-11 h-6 bg-gray-500 rounded-full peer peer-checked:bg-cyan-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div> */}
+
+            <Switch />
           </label>
-          <span className="text-gray-600">Pay Yearly</span>
-          <span className="text-blue-500 text-sm ml-2">Save 25%</span>
+          <span className="text-gray-900">Pay Yearly</span>
+          <div className="flex items-end gap-3">
+            <Image
+              src="/assets/icons/vector-arrow.png"
+              alt="arrow"
+              width={110}
+              height={80}
+              className="rotate-2 w-full"
+            />
+            <p className="text-blue-600 text-sm whitespace-nowrap">Save 25%</p>
+          </div>
         </div>
       </div>
 

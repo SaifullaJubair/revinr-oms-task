@@ -10,6 +10,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import Link from "next/link";
 
 const UserProfileNavbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ const UserProfileNavbar = () => {
   return (
     <div className="flex items-center justify-between bg-white rounded-sm p-2.5 px-4 md:px-6 shadow-sm border border-b-gray-200 mx-auto">
       {/* Left Section - Logo + Title (Always visible) */}
-      <div className="flex items-center gap-3">
+      <Link href={"/"} className="inline-flex items-center gap-3">
         <div className="border-4 border-[#E0E5ED] rounded-full w-10 h-10 md:w-12 md:h-12 relative">
           <Image
             src="/assets/images/paint.png"
@@ -33,7 +34,7 @@ const UserProfileNavbar = () => {
           </h3>
           <h5 className="text-xs text-gray-400">Solutions of Study</h5>
         </div>
-      </div>
+      </Link>
 
       {/* Middle Section - User Info + Time (Hidden on mobile) */}
       <div className="hidden md:flex flex-col items-start justify-center">

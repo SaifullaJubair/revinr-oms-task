@@ -2,14 +2,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { Bell, Settings, ChevronDown, Menu, X } from "lucide-react";
-import { FaCheck, FaEdit, FaEyeSlash, FaPlus } from "react-icons/fa";
+import { FaEdit, FaEyeSlash, FaPlus } from "react-icons/fa";
 import { HiOutlineDuplicate } from "react-icons/hi";
 import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,7 +13,7 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between bg-white rounded-sm p-2.5 px-4 md:px-6 shadow-sm border border-b-gray-200 mx-auto">
       {/* Left Section - Logo + Title (Always visible) */}
-      <div className="flex items-center gap-3">
+      <Link href="/" className="inline-flex items-center gap-3">
         <div className="border-4 border-[#E0E5ED] rounded-full w-10 h-10 md:w-12 md:h-12 relative">
           <Image
             src="/assets/images/paint.png"
@@ -33,9 +29,8 @@ const Navbar = () => {
           </h3>
           <h5 className="text-xs text-gray-400">Solutions of Study</h5>
         </div>
-      </div>
+      </Link>
 
-      
       {/* Right Section - Desktop Buttons + Icons (Hidden on mobile) */}
       <div className="hidden md:flex items-center gap-4">
         <button className="flex items-center gap-1 text-sm text-gray-600 font-bold px-4 py-1 rounded hover:bg-gray-100">
@@ -52,7 +47,6 @@ const Navbar = () => {
           Add notes
         </Button>
 
-    
         <Settings size={20} className="text-gray-700 cursor-pointer" />
         <HiOutlineDuplicate
           size={20}
@@ -63,8 +57,6 @@ const Navbar = () => {
 
       {/* Mobile Menu Button (Visible only on mobile) */}
       <div className="flex md:hidden items-center gap-3">
-    
-
         <Settings size={20} className="text-gray-700 cursor-pointer" />
         <HiOutlineDuplicate
           size={20}
