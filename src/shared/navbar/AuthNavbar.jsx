@@ -6,7 +6,7 @@ const AuthNavbar = () => {
     <div className="flex items-center gap-3 bg-gray-100 py-2.5 px-4">
       <div className="border-4 border-[#E0E5ED] rounded-full w-12 h-12 relative">
         <Image
-          src="/assets/icons/avatar.png"
+          src="/assets/images/paint.png"
           alt="Login"
           fill
           className="rounded-full w-full object-cover bg-white"

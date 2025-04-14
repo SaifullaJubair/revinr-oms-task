@@ -52,48 +52,7 @@ const Navbar = () => {
           Add notes
         </Button>
 
-        <Popover>
-          <PopoverTrigger className="p-1 rounded relative mr-4 cursor-pointer">
-            <Bell size={20} className="text-gray-700" />
-            <span className="absolute top-0 right-0 bg-red-500 rounded-full h-2 w-2"></span>
-          </PopoverTrigger>
-          <PopoverContent className="w-72 sm:w-96">
-            <div className="p-3 pb-5 flex justify-between">
-              <h5 className="text-xl font-bold">Notification (1)</h5>
-              <h5 className="text-primary">Mark all as read</h5>
-            </div>
-            <div className="max-h-72 overflow-y-auto">
-              <div className="flex items-start gap-2 border-b border-gray-200 pb-2">
-                <div className="rounded-full bg-gray-200 h-8 w-8 flex items-center justify-center">
-                  <FaCheck className="text-green-500" size={12} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-bold">Order 12345 ready to ship</p>
-                  <p className="text-xs text-gray-500">1 hour ago</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2 border-b border-gray-200 py-2">
-                <div className="rounded-full bg-gray-200 h-8 w-8 flex items-center justify-center">
-                  <FaEyeSlash className="text-red-500" size={12} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-bold">Stock update failed</p>
-                  <p className="text-xs text-gray-500">3 hours ago</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2 border-b border-gray-200 py-2">
-                <div className="rounded-full bg-gray-200 h-8 w-8 flex items-center justify-center">
-                  <FaPlus className="text-gray-700" size={12} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-bold">New order received</p>
-                  <p className="text-xs text-gray-500">5 hours ago</p>
-                </div>
-              </div>
-            </div>
-          </PopoverContent>
-        </Popover>
-
+    
         <Settings size={20} className="text-gray-700 cursor-pointer" />
         <HiOutlineDuplicate
           size={20}
@@ -104,50 +63,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Button (Visible only on mobile) */}
       <div className="flex md:hidden items-center gap-3">
-        <Popover>
-          <PopoverTrigger className="p-1 rounded relative cursor-pointer">
-            <Bell size={20} className="text-gray-700" />
-            <span className="absolute top-0 right-0 bg-red-500 rounded-full h-2 w-2"></span>
-          </PopoverTrigger>
-          <PopoverContent className="w-72 sm:w-96">
-            <div className="py-3 pb-5 flex justify-between">
-              <h5 className="text-lg text-gray-800 md:text-xl  font-bold whitespace-nowrap">
-                Notification (1)
-              </h5>
-              <h5 className="text-primary text-sm">Mark all as read</h5>
-            </div>
-
-            <div className="max-h-72 overflow-y-auto">
-              <div className="flex items-start gap-2 border-b border-gray-200 pb-2">
-                <div className="rounded-full bg-gray-200 h-8 w-8 flex items-center justify-center">
-                  <FaCheck className="text-green-500" size={12} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-bold">Order 12345 ready to ship</p>
-                  <p className="text-xs text-gray-500">1 hour ago</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2 border-b border-gray-200 py-2">
-                <div className="rounded-full bg-gray-200 h-8 w-8 flex items-center justify-center">
-                  <FaEyeSlash className="text-red-500" size={12} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-bold">Stock update failed</p>
-                  <p className="text-xs text-gray-500">3 hours ago</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-2 border-b border-gray-200 py-2">
-                <div className="rounded-full bg-gray-200 h-8 w-8 flex items-center justify-center">
-                  <FaPlus className="text-gray-700" size={12} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-bold">New order received</p>
-                  <p className="text-xs text-gray-500">5 hours ago</p>
-                </div>
-              </div>
-            </div>
-          </PopoverContent>
-        </Popover>
+    
 
         <Settings size={20} className="text-gray-700 cursor-pointer" />
         <HiOutlineDuplicate
