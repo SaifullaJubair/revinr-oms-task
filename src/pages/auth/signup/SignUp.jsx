@@ -77,9 +77,17 @@ const SignUp = () => {
   const submitForm = async (data) => {
     try {
       setLoading(true);
+      const sendData = {
+        full_name: data.full_name,
+        email: data.email,
+        mobile: data.mobile,
+        password: data.user_password,
+      };
+
+      // console.log(sendData);
       // Your API call here
-      toast.success("Password updated successfully!");
-      reset();
+      // toast.success("User registered successfully!");
+      // reset();
     } catch (error) {
       toast.error(error.message || "Something went wrong!");
     } finally {
@@ -107,7 +115,7 @@ const SignUp = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-center mt-10 lg:mt-0">
+      <div className="flex items-center justify-center my-10 ">
         <div className="max-w-[1066px] w-full mx-auto flex flex-col lg:flex-row overflow-hidden">
           {/* Left: Image */}
           <div className="lg:w-1/2 w-full flex items-center justify-center bg-gray-100 p-4">
@@ -124,7 +132,7 @@ const SignUp = () => {
           <div className="hidden lg:block w-[1px] bg-gray-400 md:mx-6"></div>
 
           {/* Right: Form */}
-          <div className="lg:w-1/2 w-full flex items-center justify-center p-6">
+          <div className="lg:w-1/2 w-full flex items-center justify-center px-6">
             <div className="w-full max-w-[450px]">
               <h2 className="text-gray-900 font-bold text-xl mb-1">
                 Create New Account
@@ -134,7 +142,93 @@ const SignUp = () => {
                 eiusmod tempor incididunt ut labore
               </p>
 
-              <form className="space-y-5" onSubmit={handleSubmit(submitForm)}>
+              <form className="space-y-2" onSubmit={handleSubmit(submitForm)}>
+                {/* Full Name */}
+                <div>
+                  <label
+                    htmlFor="full_name"
+                    className="font-bold text-sm text-gray-700"
+                  >
+                    Full Name
+                  </label>
+                  <input
+                    id="full_name"
+                    type="text"
+                    placeholder="Enter Your Full Name"
+                    {...register("full_name", {
+                      required: "Full name is required",
+                    })}
+                    className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 bg-white ${
+                      errors.full_name ? "border-destructive" : ""
+                    }`}
+                  />
+                  {errors.full_name && (
+                    <span className="text-xs text-destructive">
+                      {errors.full_name.message}
+                    </span>
+                  )}
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="font-bold text-sm text-gray-700"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter Your Email"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^\S+@\S+\.\S+$/,
+                        message: "Enter a valid email",
+                      },
+                    })}
+                    className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 bg-white ${
+                      errors.email ? "border-destructive" : ""
+                    }`}
+                  />
+                  {errors.email && (
+                    <span className="text-xs text-destructive">
+                      {errors.email.message}
+                    </span>
+                  )}
+                </div>
+
+                {/* Mobile Number */}
+                <div>
+                  <label
+                    htmlFor="mobile"
+                    className="font-bold text-sm text-gray-700"
+                  >
+                    Mobile Number
+                  </label>
+                  <input
+                    id="mobile"
+                    type="text"
+                    placeholder="Enter Mobile Number"
+                    {...register("mobile", {
+                      required: "Mobile number is required",
+                      pattern: {
+                        value: /^(?:\+88|88)?(01[3-9]\d{8})$/,
+                        message: "Enter a valid mobile number",
+                      },
+                    })}
+                    className={`placeholder:text-gray-400  bg-white border rounded-sm outline-none px-4 w-full mt-1 py-2 ${
+                      errors.mobile ? "border-destructive" : ""
+                    }`}
+                  />
+                  {errors.mobile && (
+                    <span className="text-xs text-destructive">
+                      {errors.mobile.message}
+                    </span>
+                  )}
+                </div>
+
                 {/*  Password Input */}
                 <div>
                   <label className="font-bold text-sm text-gray-700">
@@ -143,7 +237,7 @@ const SignUp = () => {
                   <div className="relative">
                     <input
                       type={isPasswordShow ? "text" : "password"}
-                      placeholder="Enter your password"
+                      placeholder="Enter Your Password"
                       {...register("user_password", passwordValidation)}
                       className={`bg-white placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 ${
                         errors.user_password
@@ -176,7 +270,7 @@ const SignUp = () => {
                   <div className="relative">
                     <input
                       type={isPasswordShow ? "text" : "password"}
-                      placeholder="Retype password"
+                      placeholder="Retype Password"
                       {...register("confirm_password", {
                         required: "Please confirm your password",
                         validate: (value) =>
@@ -206,7 +300,7 @@ const SignUp = () => {
                   )}
                 </div>
                 {/* Password Requirements */}
-                <div className="text-sm text-gray-500 space-y-1">
+                <div className="text-sm text-gray-500 space-y-1 mb-4">
                   <ul className="flex flex-col gap-1">
                     <li
                       className={`flex items-center gap-2 ${
@@ -289,20 +383,22 @@ const SignUp = () => {
 
               {/* Social Buttons */}
               <div className="flex justify-center gap-6 mb-4">
-                <button className="flex items-center gap-2 border bg-gray-100 border-gray-300 p-2 rounded-full hover:bg-gray-100">
+                <button className="flex items-center gap-2 border bg-gray-100 border-gray-300 p-2 rounded-full hover:bg-gray-100 cursor-pointer">
                   <Image
                     src="/assets/icons/Facebook-logo.png"
                     alt="Facebook"
                     width={40}
                     height={40}
+                    className="hover:scale-110 transition-transform duration-200"
                   />
                 </button>
-                <button className="flex items-center gap-2 border bg-gray-100 border-gray-300 p-2 rounded-full hover:bg-gray-100">
+                <button className="flex items-center gap-2 border bg-gray-100 border-gray-300 p-2 rounded-full hover:bg-gray-100 cursor-pointer">
                   <Image
                     src="/assets/icons/google-logo.png"
                     alt="Google"
                     width={40}
                     height={40}
+                    className="hover:scale-110 transition-transform duration-200"
                   />
                 </button>
               </div>
@@ -310,7 +406,7 @@ const SignUp = () => {
               {/* Sign Up Link */}
               <div className="text-center text-sm text-gray-700">
                 Already have an account?{" "}
-                <Link href="/sign-up" className="text-blue-600 ">
+                <Link href="/sign-in" className="text-blue-600 ">
                   Sign In
                 </Link>
               </div>

@@ -23,27 +23,36 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: data.user_email,
-            password: data.user_password,
-          }),
-        }
-      );
+      const sendData = {
+        email: data.user_email,
+        password: data.user_password,
+      };
 
-      const result = await response.json();
+      console.log(sendData);
 
-      if (!response.ok) {
-        throw new Error(result.message || "Login failed");
-      }
+      // Your API call here
 
-      toast.success("Login successful!");
+      // const response = await fetch(
+      //   `${process.env.NEXT_PUBLIC_API_BASE_URL}/login`,
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       email: data.user_email,
+      //       password: data.user_password,
+      //     }),
+      //   }
+      // );
+
+      // const result = await response.json();
+
+      // if (!response.ok) {
+      //   throw new Error(result.message || "Login failed");
+      // }
+
+      // toast.success("Login successful!");
     } catch (error) {
       toast.error(error.message || "Something went wrong!");
     } finally {
@@ -112,7 +121,7 @@ const Login = () => {
                     {...register("user_email", {
                       required: "Email is required",
                     })}
-                    className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 ${
+                    className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 bg-white ${
                       errors.user_email ? "border-destructive" : ""
                     }`}
                   />
@@ -139,7 +148,7 @@ const Login = () => {
                       {...register("user_password", {
                         required: "Password is Required!",
                       })}
-                      className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 ${
+                      className={`placeholder:text-gray-400 border rounded-sm outline-none px-4 w-full mt-1 py-2 focus:border-primary transition-colors duration-300 bg-white ${
                         errors.user_password ? "border-destructive" : ""
                       }`}
                     />
@@ -204,6 +213,7 @@ const Login = () => {
                     alt="Facebook"
                     width={40}
                     height={40}
+                    className="hover:scale-110 transition-transform duration-200"
                   />
                 </button>
                 <button className="flex items-center gap-2 border bg-gray-100 border-gray-300 p-2 rounded-full hover:bg-gray-100">
@@ -212,6 +222,7 @@ const Login = () => {
                     alt="Google"
                     width={40}
                     height={40}
+                    className="hover:scale-110 transition-transform duration-200"
                   />
                 </button>
               </div>

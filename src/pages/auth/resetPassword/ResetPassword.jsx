@@ -44,6 +44,10 @@ const ResetPassword = () => {
   const submitForm = async (data) => {
     try {
       setLoading(true);
+      const sendData = {
+        password: data.user_password,
+      };
+      console.log(sendData);
       // Your API call here
       toast.success("Password updated successfully!");
       reset();
@@ -54,7 +58,6 @@ const ResetPassword = () => {
     }
   };
 
-  console.log(errors.user_password);
   return (
     <div className="bg-gray-100 relative min-h-screen flex items-center justify-center">
       {/* Logo Section */}
