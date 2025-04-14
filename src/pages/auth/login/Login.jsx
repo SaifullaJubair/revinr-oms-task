@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaShoppingBag } from "react-icons/fa";
 import Image from "next/image";
 import MiniSpinner from "@/shared/loader/MiniSpinner";
+import LogoSection from "@/components/auth/LogoSection";
 const Login = () => {
   const {
     register,
@@ -62,23 +63,7 @@ const Login = () => {
   return (
     <div className="bg-gray-100 relative min-h-screen flex items-center justify-center">
       {/* Logo Section */}
-      <div className="absolute top-4 left-4 flex items-center gap-3">
-        <div className="border-4 border-[#E0E5ED] rounded-full w-12 h-12 relative">
-          <Image
-            src="/assets/images/paint.png"
-            alt="Login"
-            fill
-            className="rounded-full  w-full object-cover bg-white"
-          />
-        </div>
-        <div>
-          <h3 className="font-bold ">
-            <span className="text-gray-500">OMS/ </span>
-            <span className="text-cyan-500">Study Press</span>
-          </h3>
-          <h5 className="text-xs text-gray-400">Solutions of Study</h5>
-        </div>
-      </div>
+      <LogoSection />
       <div className="flex items-center justify-center   mt-10 lg:mt-0">
         <div className="max-w-[1066px] w-full mx-auto flex flex-col lg:flex-row  overflow-hidden ">
           {/* Left: login Image Section */}
@@ -189,13 +174,21 @@ const Login = () => {
                 </div>
 
                 {/* Sign In Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting || Object.keys(errors).length > 0}
-                  className="bg-primaryColor hover:bg-primaryColor/90 cursor-pointer text-white py-[6px] w-full border-0 font-bold  shadow-md rounded-sm"
-                >
-                  {isLoading ? <MiniSpinner /> : "Sign In"}
-                </button>
+                {isSubmitting || isLoading ? (
+                  <div
+                    type="submit"
+                    className="bg-blue-600 hover:bg-blue-700 text-white py-2 w-full font-bold rounded-sm text-center flex items-center justify-center cursor-not-allowed"
+                  >
+                    <MiniSpinner />
+                  </div>
+                ) : (
+                  <button
+                    type="submit"
+                    className="bg-blue-600 hover:bg-blue-700 text-white py-2 w-full font-bold rounded-sm cursor-pointer"
+                  >
+                    Sign In
+                  </button>
+                )}
               </form>
 
               {/* OR divider */}
