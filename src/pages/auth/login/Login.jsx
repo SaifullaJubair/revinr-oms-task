@@ -70,7 +70,7 @@ const Login = () => {
           <h5 className="text-xs text-gray-400">Solutions of Study</h5>
         </div>
       </div>
-      <div className="flex items-center justify-center  ">
+      <div className="flex items-center justify-center   mt-10 lg:mt-0">
         <div className="max-w-[1066px] w-full mx-auto flex flex-col lg:flex-row  overflow-hidden ">
           {/* Left: login Image Section */}
           <div className="lg:w-1/2 w-full flex items-center justify-center bg-gray-100 p-4">
@@ -84,11 +84,11 @@ const Login = () => {
           </div>
 
           {/* Divider */}
-          <div className="hidden lg:block w-[1px] bg-gray-400"></div>
+          <div className="hidden lg:block w-[1px] bg-gray-400 md:mx-6"></div>
 
           {/* Right: Form Section */}
           <div className="lg:w-1/2 w-full flex items-center justify-center p-6">
-            <div className="w-full max-w-[400px]">
+            <div className="w-full max-w-[450px]">
               <h2 className="text-gray-900 font-bold text-xl mb-1">
                 Welcome to OMS!
               </h2>
@@ -173,7 +173,7 @@ const Login = () => {
                       htmlFor="forgot-password"
                       className="text-sm text-primary hover:underline"
                     >
-                      <Link href="/forgot-password">Forget password</Link>
+                      <Link href="/forget-password">Forget password</Link>
                     </label>
                   </div>
                   <span className="text-destructive text-sm">Remember me</span>

@@ -1,9 +1,9 @@
-import ForgetPasswordForm from "@/components/frontend/auth/ForgetPassword/ForgetPasswordForm";
+import ForgetPassword from "@/pages/auth/forgetPassword/ForgetPassword";
 
 const ForgetPasswordPage = () => {
   return (
     <div>
-      <ForgetPasswordForm />;
+      <ForgetPassword />
     </div>
   );
 };
