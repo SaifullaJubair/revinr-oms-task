@@ -37,7 +37,7 @@ const Pricing = () => {
           </label>
           <span className="text-gray-900 text-xl ">Pay Yearly</span>
 
-          <div className=" hidden sm:flex items-end  gap-1 mt-1  absolute left-[80%] md:left-[76%] lg:left-[74%] -translate-x-1/2">
+          <div className=" hidden sm:flex items-end  gap-1 mt-2.5 lg:mt-1  absolute left-[80%] md:left-[76%] lg:left-[74%] -translate-x-1/2">
             <Image
               src="/assets/icons/arrow.png"
               alt="arrow"
