@@ -22,7 +22,7 @@ const Pricing = () => {
         </p>
 
         {/* Toggle */}
-        <div className="flex justify-center  gap-4 mt-8">
+        <div className="flex justify-center  gap-4 mt-6 sm:mb-20 relative">
           <span className="text-gray-900 text-xl ">Pay Monthly</span>
           <label className="relative inline-flex mt-2 cursor-pointer">
             <input
@@ -36,7 +36,8 @@ const Pricing = () => {
             <Switch />
           </label>
           <span className="text-gray-900 text-xl ">Pay Yearly</span>
-          <div className=" hidden sm:flex items-end  gap-1 -mt-1 ">
+
+          <div className=" hidden sm:flex items-end  gap-1 mt-1  absolute left-[80%] md:left-[76%] lg:left-[74%] -translate-x-1/2">
             <Image
               src="/assets/icons/arrow.png"
               alt="arrow"
@@ -44,7 +45,7 @@ const Pricing = () => {
               height={80}
               className="rotate-2 w-full"
             />
-            <p className="text-blue-600 text-sm whitespace-nowrap">Save 25%</p>
+            <p className="text-blue-600 text-xl whitespace-nowrap mb-2">Save 25%</p>
           </div>
         </div>
       </div>
