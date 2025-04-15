@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaShoppingBag } from "react-icons/fa";
 import Image from "next/image";
 import MiniSpinner from "@/shared/loader/MiniSpinner";
+import { useRouter } from "next/navigation";
 const Login = () => {
   const {
     register,
@@ -17,7 +18,7 @@ const Login = () => {
   } = useForm();
   const [isLoading, setLoading] = useState(false);
   const [isPasswordShow, setPasswordShow] = useState(false);
-
+  const router = useRouter();
   // Function to handle form submission
   const submitForm = async (data) => {
     try {
@@ -52,7 +53,9 @@ const Login = () => {
       //   throw new Error(result.message || "Login failed");
       // }
 
-      // toast.success("Login successful!");
+      toast.success("Login successful!");
+      reset();
+      router.push("/");
     } catch (error) {
       toast.error(error.message || "Something went wrong!");
     } finally {

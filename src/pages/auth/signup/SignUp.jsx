@@ -4,10 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import SignUpForm from "./SignUpForm";
+import { useRouter } from "next/navigation";
 
 const SignUp = () => {
   const [isLoading, setLoading] = useState(false);
-
+  const router = useRouter();
   // Form submission handler
   const submitForm = async (data) => {
     try {
@@ -21,8 +22,22 @@ const SignUp = () => {
 
       console.log(sendData);
       // Your API call here
-      // toast.success("User registered successfully!");
-      // reset();
+
+      // const response = await fetch(
+      //   `${process.env.NEXT_PUBLIC_API_BASE_URL}/register`,
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(sendData),
+      //   }
+      // );
+
+      // const result = await response.json();
+
+      toast.success("User registered successfully!");
+      router.push("/sign-in");
     } catch (error) {
       toast.error(error.message || "Something went wrong!");
     } finally {

@@ -11,6 +11,7 @@ import {
   DollarSign,
   Building2,
 } from "lucide-react";
+import { yatra } from "@/utils/font";
 
 export default function Home() {
   const actionButtons = [
@@ -42,13 +43,13 @@ export default function Home() {
       name: "Pricing",
       href: "/pricing",
       icon: <DollarSign className="mr-2 h-4 w-4" />,
-      variant: "secondary",
+      variant: "outline",
     },
     {
       name: "Company Profile",
       href: "/profile",
       icon: <Building2 className="mr-2 h-4 w-4" />,
-      variant: "secondary",
+      variant: "outline",
     },
   ];
 
@@ -56,7 +57,12 @@ export default function Home() {
     <main className="flex min-h-[80vh] flex-col items-center justify-center px-6 py-12 bg-gray-100 text-foreground">
       <div className="max-w-2xl text-center space-y-8">
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold text-primary mb-4 ">
+          <h1
+            className="text-4xl font-bold text-primary mb-4 "
+            style={{
+              fontFamily: yatra.style.fontFamily,
+            }}
+          >
             Welcome to <span className="text-gray-500">OMS/ </span>
             <span className="text-cyan-500">Study Press</span>
           </h1>
@@ -76,7 +82,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant={button.variant}
-                  className="w-full justify-start px-6 py-5 transition-all hover:shadow-md"
+                  className="w-full justify-start px-6 py-5 transition-all hover:shadow-md cursor-pointer"
                 >
                   {button.icon}
                   {button.name}
