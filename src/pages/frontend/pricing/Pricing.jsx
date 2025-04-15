@@ -67,7 +67,7 @@ const Pricing = () => {
             </h3>
             <p
               className={`text-sm mb-4 ${
-                plan.highlight ? "text-white/80" : "text-gray-500"
+                plan.highlight ? "text-gray-200" : "text-gray-500 "
               }`}
             >
               {plan.description}
@@ -75,16 +75,20 @@ const Pricing = () => {
 
             <div className="text-3xl sm:text-5xl font-bold mb-6">
               ${yearly ? plan.priceMonthly * 12 * 0.75 : plan.priceMonthly}
-              <span className="text-sm font-normal text-gray-500 ml-2">
+              <span
+                className={`text-sm font-normal  ml-2 ${
+                  plan.highlight ? "text-gray-200" : "text-gray-500 "
+                }`}
+              >
                 / {yearly ? "Year" : "Month"}
               </span>
             </div>
 
             <button
-              className={`w-full py-2 rounded text-sm font-medium cursor-pointer ${
+              className={`w-full py-2 rounded text-sm font-medium cursor-pointer text-blue-600 ${
                 plan.highlight
-                  ? "bg-white text-cyan-600 hover:bg-gray-100"
-                  : "border border-blue-600 text-blue-600 hover:bg-blue-50"
+                  ? "bg-white  hover:bg-gray-100"
+                  : "border border-blue-600  hover:bg-blue-50"
               }`}
             >
               Get Started Now
@@ -109,7 +113,9 @@ const Pricing = () => {
                         ? plan.highlight
                           ? "text-white"
                           : "text-gray-800"
-                        : "text-gray-400 "
+                        : " "
+                    } ${
+                      plan.highlight && !feature.available && "text-gray-300"
                     }`}
                   >
                     {feature.name}
