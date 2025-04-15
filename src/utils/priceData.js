@@ -2,7 +2,7 @@ export const pricingPlans = [
   {
     name: "Starter",
     description:
-      "Perfect for small teams or startups taking their first step toward streamlined HR management.",
+      "Perfect for small teams or startups taking their first step toward streamlined HR management.  HR management.",
     priceMonthly: 2,
     highlight: false,
     features: [
