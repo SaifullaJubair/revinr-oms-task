@@ -1,18 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import {
-  Bell,
-  Settings,
-  ChevronDown,
-  Menu,
-  X,
-  Globe,
-  Search,
-} from "lucide-react";
-import { FaEdit, FaEyeSlash, FaPlus } from "react-icons/fa";
-import { HiOutlineDuplicate } from "react-icons/hi";
-import { Button } from "@/components/ui/button";
+import { Menu, X, Globe, Search } from "lucide-react";
+
 import Link from "next/link";
 
 const Navbar = () => {
@@ -56,8 +46,6 @@ const Navbar = () => {
 
       {/* Mobile Menu Button (Visible only on mobile) */}
       <div className="flex md:hidden items-center gap-3">
-     
-
         <button
           onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
           className="p-1 text-gray-700 focus:outline-none"

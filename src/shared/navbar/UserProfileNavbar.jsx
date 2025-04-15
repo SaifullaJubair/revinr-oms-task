@@ -59,23 +59,23 @@ const UserProfileNavbar = () => {
 
       {/* Right Section - Desktop Buttons + Icons (Hidden on mobile) */}
       <div className="hidden md:flex items-center gap-4">
-        <button className="cursor-pointer flex items-center gap-1 text-sm text-gray-600 font-bold px-4 py-1 rounded ">
-          <span className="bg-[#00B6BC] text-white rounded-full size-5 flex items-center justify-center">
+        <button className="cursor-pointer flex items-center gap-2 text-sm text-gray-600 font-bold px-2 py-1 rounded  group hover:text-gray-800 ">
+          <span className="bg-[#00B6BC] group-hover:bg-cyan-600 text-white rounded-full size-5 flex items-center justify-center">
             <FaPlus size={12} />
           </span>
           Add requisitions
         </button>
-        <Button
-          className="flex items-center gap-1 text-sm border border-gray-300 px-3 py-1 hover:bg-gray-100 rounded-2xl text-gray-600 cursor-pointer"
+        <button
+          className="flex items-center gap-2 text-sm border border-gray-600 px-5 py-1.5 hover:bg-gray-100 rounded-2xl text-gray-600 cursor-pointer font-bold"
           variant={"outline"}
         >
           <FaEdit size={14} />
           Add notes
-        </Button>
+        </button>
 
         <Popover>
-          <PopoverTrigger className="p-1 rounded relative mr-4 cursor-pointer">
-            <Bell size={20} className="text-gray-700" />
+          <PopoverTrigger className="p-1 rounded relative mr-1 cursor-pointer">
+            <Bell size={20} className="text-gray-700 hover:text-gray-900" />
             <span className="absolute top-0 right-0 bg-red-500 rounded-full h-2 w-2"></span>
           </PopoverTrigger>
           <PopoverContent className="w-72 sm:w-96">
@@ -115,10 +115,13 @@ const UserProfileNavbar = () => {
           </PopoverContent>
         </Popover>
 
-        <Settings size={20} className="text-gray-700 cursor-pointer" />
+        <Settings
+          size={20}
+          className="text-gray-700 cursor-pointer hover:text-gray-800 hover:animate-spin "
+        />
         <HiOutlineDuplicate
           size={20}
-          className="text-gray-700 cursor-pointer"
+          className="text-gray-700 hover:text-gray-800 cursor-pointer"
         />
         <ChevronDown size={20} className="text-gray-700 cursor-pointer" />
       </div>
