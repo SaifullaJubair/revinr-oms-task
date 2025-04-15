@@ -3,59 +3,14 @@ import React, { useState } from "react";
 import { CheckCircle, XCircle } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
-
-const plans = [
-  {
-    name: "Starter",
-    description:
-      "Perfect for small teams or startups taking their first step toward streamlined HR management.",
-    priceMonthly: 2,
-    features: [
-      "Onboarding",
-      "Employee database management",
-      null,
-      null,
-      null,
-      null,
-    ],
-  },
-  {
-    name: "Professional",
-    description:
-      "Designed for growing businesses, the Professional package offers enhanced HR capabilities to streamline operations and boost productivity.",
-    priceMonthly: 25,
-    features: [
-      "Onboarding",
-      "Employee database management",
-      "Time-off management (Leave)",
-      "Basic shift management",
-      "Document management",
-      "Module-based reports",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Enterprise",
-    description:
-      "Built for large organizations with complex HR needs, the Enterprise package offers a fully customizable and scalable solution.",
-    priceMonthly: 50,
-    features: [
-      "Onboarding",
-      "Employee database management",
-      "Time-off management (Leave)",
-      "Basic shift management",
-      "Document management",
-      "Module-based reports",
-    ],
-  },
-];
+import { pricingPlans } from "@/utils/priceData";
 
 const Pricing = () => {
   const [yearly, setYearly] = useState(false);
 
   return (
     <div className="bg-bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 bg-white min-h-screen">
-      <div className="max-w-7xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl font-bold text-cyan-500">
           30-day free trial. No credit card required
         </h2>
@@ -67,9 +22,9 @@ const Pricing = () => {
         </p>
 
         {/* Toggle */}
-        <div className="flex justify-center items-center gap-4 mt-6">
-          <span className="text-gray-900">Pay Monthly</span>
-          <label className="relative inline-flex items-center cursor-pointer">
+        <div className="flex justify-center  gap-4 mt-8">
+          <span className="text-gray-900 text-xl ">Pay Monthly</span>
+          <label className="relative inline-flex mt-2 cursor-pointer">
             <input
               type="checkbox"
               className="sr-only peer"
@@ -80,8 +35,8 @@ const Pricing = () => {
 
             <Switch />
           </label>
-          <span className="text-gray-900">Pay Yearly</span>
-          <div className="flex items-end gap-3">
+          <span className="text-gray-900 text-xl ">Pay Yearly</span>
+          <div className=" hidden sm:flex items-end  gap-1 -mt-1 ">
             <Image
               src="/assets/icons/vector-arrow.png"
               alt="arrow"
@@ -95,8 +50,8 @@ const Pricing = () => {
       </div>
 
       {/* Plans */}
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {plans.map((plan, idx) => (
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {pricingPlans.map((plan, idx) => (
           <div
             key={idx}
             className={`rounded-lg p-6 shadow-sm border ${
@@ -104,7 +59,7 @@ const Pricing = () => {
             }`}
           >
             <h3
-              className={`text-xl font-bold mb-2 ${
+              className={`text-2xl font-bold my-4 ${
                 plan.highlight ? "text-white" : "text-gray-800"
               }`}
             >
@@ -112,25 +67,24 @@ const Pricing = () => {
             </h3>
             <p
               className={`text-sm mb-4 ${
-                plan.highlight ? "text-white/80" : "text-gray-600"
+                plan.highlight ? "text-white/80" : "text-gray-500"
               }`}
             >
               {plan.description}
             </p>
 
-            <div className="text-3xl font-bold mb-4">
+            <div className="text-3xl sm:text-5xl font-bold mb-6">
               ${yearly ? plan.priceMonthly * 12 * 0.75 : plan.priceMonthly}
-              <span className="text-base font-normal">
-                {" "}
+              <span className="text-sm font-normal text-gray-500 ml-2">
                 / {yearly ? "Year" : "Month"}
               </span>
             </div>
 
             <button
-              className={`w-full py-2 rounded text-sm font-medium ${
+              className={`w-full py-2 rounded text-sm font-medium cursor-pointer ${
                 plan.highlight
                   ? "bg-white text-cyan-600 hover:bg-gray-100"
-                  : "border border-blue-500 text-blue-500 hover:bg-blue-50"
+                  : "border border-blue-600 text-blue-600 hover:bg-blue-50"
               }`}
             >
               Get Started Now
@@ -139,18 +93,26 @@ const Pricing = () => {
             <ul className="mt-6 space-y-2 text-sm">
               {plan.features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  {feature ? (
+                  {feature.available ? (
                     <CheckCircle
                       size={16}
-                      className={`${
+                      className={
                         plan.highlight ? "text-white" : "text-cyan-500"
-                      }`}
+                      }
                     />
                   ) : (
                     <XCircle size={16} className="text-gray-300" />
                   )}
-                  <span className={feature ? "" : "text-gray-400 line-through"}>
-                    {feature || ""}
+                  <span
+                    className={`${
+                      feature.available
+                        ? plan.highlight
+                          ? "text-white"
+                          : "text-gray-800"
+                        : "text-gray-400 "
+                    }`}
+                  >
+                    {feature.name}
                   </span>
                 </li>
               ))}
