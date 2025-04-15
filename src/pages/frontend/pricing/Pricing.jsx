@@ -38,7 +38,7 @@ const Pricing = () => {
           <span className="text-gray-900 text-xl ">Pay Yearly</span>
           <div className=" hidden sm:flex items-end  gap-1 -mt-1 ">
             <Image
-              src="/assets/icons/vector-arrow.png"
+              src="/assets/icons/arrow.png"
               alt="arrow"
               width={110}
               height={80}

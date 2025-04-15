@@ -59,14 +59,14 @@ const UserProfileNavbar = () => {
 
       {/* Right Section - Desktop Buttons + Icons (Hidden on mobile) */}
       <div className="hidden md:flex items-center gap-4">
-        <button className="flex items-center gap-1 text-sm text-gray-600 font-bold px-4 py-1 rounded hover:bg-gray-100">
+        <button className="cursor-pointer flex items-center gap-1 text-sm text-gray-600 font-bold px-4 py-1 rounded ">
           <span className="bg-[#00B6BC] text-white rounded-full size-5 flex items-center justify-center">
             <FaPlus size={12} />
           </span>
           Add requisitions
         </button>
         <Button
-          className="flex items-center gap-1 text-sm border border-gray-300 px-3 py-1 hover:bg-gray-100 rounded-2xl text-gray-600"
+          className="flex items-center gap-1 text-sm border border-gray-300 px-3 py-1 hover:bg-gray-100 rounded-2xl text-gray-600 cursor-pointer"
           variant={"outline"}
         >
           <FaEdit size={14} />
@@ -178,7 +178,7 @@ const UserProfileNavbar = () => {
 
         <button
           onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-1 text-gray-700 focus:outline-none"
+          className="p-1 text-gray-700 focus:outline-none cursor-pointer"
         >
           {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -203,7 +203,7 @@ const UserProfileNavbar = () => {
               </div>
             </div>
 
-            <button className="flex items-center gap-2 text-sm text-gray-600 font-bold px-4 py-2 rounded hover:bg-gray-100">
+            <button className="flex items-center gap-2 text-sm cursor-pointer text-gray-600 font-bold px-4 py-2 rounded hover:bg-gray-100">
               <span className="bg-[#00B6BC] text-white rounded-full size-5 flex items-center justify-center">
                 <FaPlus size={12} />
               </span>
@@ -211,7 +211,7 @@ const UserProfileNavbar = () => {
             </button>
 
             <Button
-              className="flex items-center gap-2 text-sm border border-gray-300 px-4 py-2 hover:bg-gray-100 rounded-2xl text-gray-600 justify-start"
+              className="flex items-center gap-2 text-sm border border-gray-300 px-4 py-2 hover:bg-gray-100 rounded-2xl text-gray-600 justify-start cursor-pointer"
               variant={"outline"}
             >
               <FaEdit size={14} />
