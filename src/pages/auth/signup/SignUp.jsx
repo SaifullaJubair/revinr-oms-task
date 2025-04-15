@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import SignUpForm from "./SignUpForm";
 import { useRouter } from "next/navigation";
 
+
 const SignUp = () => {
   const [isLoading, setLoading] = useState(false);
   const router = useRouter();

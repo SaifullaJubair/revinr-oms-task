@@ -1,6 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+  title: "404 Not Found",
+  description: "Oops! The page you're looking for does not exist.",
+};
 const NotFound = () => {
   return (
     <div className="boxShadow px-10 w-full flex items-center flex-col justify-center py-20  min-h-screen bg-[#00543A]">
