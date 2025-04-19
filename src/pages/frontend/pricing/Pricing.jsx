@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { CheckCircle, XCircle } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
-import { pricingPlans } from "@/utils/priceData";
+import { pricingPlans } from "@/shared/dashBoardSidebar/utils/priceData";
 
 const Pricing = () => {
   const [yearly, setYearly] = useState(false);
@@ -18,7 +18,7 @@ const Pricing = () => {
           A complete HR solution for every business
         </p>
         <p className="mt-1  text-gray-500 text-lg">
-          Choose a plan that's right for you
+          Choose a plan that&apos;s right for you
         </p>
 
         {/* Toggle */}
@@ -45,7 +45,9 @@ const Pricing = () => {
               height={80}
               className="rotate-2 w-full"
             />
-            <p className="text-blue-600 text-xl whitespace-nowrap mb-2">Save 25%</p>
+            <p className="text-blue-600 text-xl whitespace-nowrap mb-2">
+              Save 25%
+            </p>
           </div>
         </div>
       </div>

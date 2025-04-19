@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
           transition={Slide}
           closeOnClick
         />
+
         {children}
       </body>
     </html>

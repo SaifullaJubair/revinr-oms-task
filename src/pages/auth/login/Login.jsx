@@ -5,7 +5,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 
-import { FaEye, FaEyeSlash, FaShoppingBag } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Image from "next/image";
 import MiniSpinner from "@/shared/loader/MiniSpinner";
 import { useRouter } from "next/navigation";
