@@ -4,9 +4,10 @@ import UserProfileNavbar from "@/shared/navbar/UserProfileNavbar";
 import Sidebar from "@/shared/dashBoardSidebar/Sidebar";
 
 const DashboardLayout = ({ children }) => {
-  const [isCollapsed, setIsCollapsed] = useState(true); // Default collapsed
-  const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(true);
-  
+  const [isCollapsed, setIsCollapsed] = useState(
+    typeof window !== "undefined" ? window.innerWidth < 768 : true
+  );
+  const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex">
@@ -18,27 +19,21 @@ const DashboardLayout = ({ children }) => {
         setMobileSidebarOpen={setMobileSidebarOpen}
       />
 
-      {/* Overlay for mobile */}
+      {/* Overlay for mobile - only shown when mobile sidebar is open */}
       {isMobileSidebarOpen && (
         <div
           onClick={() => setMobileSidebarOpen(false)}
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          className="fixed inset-0 bg-black/50 z-40 md:hidden" // z-40 to be below sidebar (z-50)
         />
       )}
 
       {/* Main Content */}
       <div
-        className={`flex-1 flex flex-col bg-gray-100 transition-all duration-300 ${
-          isMobileSidebarOpen ? "overflow-hidden" : ""
-        }`}
+        className={`flex-1 flex flex-col bg-gray-100 transition-all duration-300`}
         style={{
-          marginLeft: `${
-            isMobileSidebarOpen
-              ? "60px" // Push content when mobile sidebar is open
-              : isCollapsed
-              ? "60px"
-              : "250px"
-          }`,
+          // Only apply margin on desktop
+          marginLeft:
+            window.innerWidth >= 768 ? (isCollapsed ? "60px" : "280px") : "60px",
         }}
       >
         <header className="bg-gray-100">
